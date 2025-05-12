@@ -4,4 +4,6 @@ Este projeto propõe o desenvolvimento de um sistema que estimula o reconhecimen
 
 ## Diagrama de Entidade e Relacionamento
 
-![image](https://github.com/user-attachments/assets/76ee9c6d-a551-4e8e-b2ac-48203fec6501)
+<div>
+ <img src="Diagramas/DiagramaER.jpeg" width="76%">
+</div>
