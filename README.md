@@ -7,3 +7,15 @@ Este projeto propõe o desenvolvimento de um sistema que estimula o reconhecimen
 <div>
  <img src="Diagramas/DiagramaER.jpeg" width="76%">
 </div>
+
+## Diagrama de Sequencia
+
+<div>
+ <img src="Diagramas/diagramaSequencia.png" width="76%">
+</div>
+
+## Diagrama de Casos de Uso
+
+<div>
+ <img src="Diagramas/DiagramaCasoDeUsoLab3.png" width="76%">
+</div>
