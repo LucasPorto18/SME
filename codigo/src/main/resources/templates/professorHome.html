@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Professor - Moeda Estudantil</title>
+    <style>
+        body {
+            background-color: #f1f5ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .box {
+            flex: 1 1 45%;
+            min-width: 280px;
+            background-color: #f9fafb;
+            border: 2px solid #003366;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .box h2 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .box p {
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #002244;
+        }
+        .golden {
+            color: #c79c06;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Painel do Professor - <span class="golden">Moeda Estudantil</span></h1>
+
+        <div class="box-container">
+            <div class="box">
+                <h2>Distribuir Moedas</h2>
+               
+                    <p class="saldo"><strong>Meu saldo:</strong> 150 moedas</p>
+    
+                    <div class="input-group">
+                        <label for="aluno">Aluno:</label>
+                        <input type="text" id="aluno" placeholder="Digite o nome do aluno">
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="quantidade">Quantidade de moedas:</label>
+                        <input type="number" id="quantidade" placeholder="Ex.: 10">
+                    </div>
+    
+                    <button class="btn">Enviar Moedas</button>
+            </div>
+
+            <div class="box">
+                <h2>Visualizar Saldo dos Alunos</h2>
+                <p>Consulte o saldo de moedas dos alunos da sua turma e acompanhe o progresso individual.</p>
+                <a href="#" class="btn">Acessar</a>
+            </div>
+
+            <div class="box">
+                <h2>Histórico de Transações</h2>
+                <p>Visualize todas as transações realizadas, tanto suas quanto dos alunos, para controle e transparência.</p>
+                <a href="#" class="btn">Acessar</a>
+            </div>
+
+            <div class="box">
+                <h2>Configurações da Turma</h2>
+                <p>Gerencie sua turma, adicione ou remova alunos e configure os critérios para distribuição de moedas.</p>
+                <a href="#" class="btn">Acessar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

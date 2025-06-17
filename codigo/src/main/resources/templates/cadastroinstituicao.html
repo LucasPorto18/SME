@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:inline="text"
+      lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Instituição</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; background: #f0f4ff; }
+    form { background: white; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; }
+    fieldset { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; background: #fafafa; }
+    label { display: block; margin-top: 8px; }
+    input { width: 100%; padding: 6px; margin-top: 4px; border-radius: 4px; border: 1px solid #ccc; }
+    button { margin-top: 12px; padding: 10px 16px; border: none; border-radius: 5px; cursor: pointer; }
+    .add-button { background: #d4af37; color: #003366; }
+    .submit-button { background: #003366; color: white; }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center; color:#003366;">Cadastro de Instituição</h2>
+
+  <form th:action="@{/instituicoes}" method="post" th:object="${instituicao}" id="formInstituicao">
+    <label>Nome da Instituição:</label>
+    <input type="text" th:field="*{nome}" required>
+
+    <label>Senha:</label>
+    <input type="password" th:field="*{senha}" required>
+
+    <div id="professoresContainer">
+      <div th:each="prof, stat : *{professores}" class="professor-group">
+        <fieldset>
+          <legend>Professor <span th:text="${stat.index + 1}">1</span></legend>
+
+          <label>Nome:</label>
+          <input type="text"
+                 th:field="*{professores[__${stat.index}__].nome}"
+                 required>
+
+          <label>CPF:</label>
+          <input type="text"
+                 th:field="*{professores[__${stat.index}__].cpf}"
+                 required>
+
+          <label>Departamento:</label>
+          <input type="text"
+                 th:field="*{professores[__${stat.index}__].departamento}"
+                 required>
+
+          <label>Senha:</label>
+          <input type="password"
+                 th:field="*{professores[__${stat.index}__].senha}"
+                 required>
+        </fieldset>
+      </div>
+    </div>
+
+    <button type="button" class="add-button" onclick="adicionarProfessor()">+ Adicionar Professor</button>
+    <button type="submit" class="submit-button">Cadastrar</button>
+  </form>
+
+  <template id="templateProfessor">
+    <div class="professor-group">
+      <fieldset>
+        <legend>Professor __NUM__</legend>
+
+        <label>Nome:</label>
+        <input type="text" name="professores[__INDEX__].nome" required>
+
+        <label>CPF:</label>
+        <input type="text" name="professores[__INDEX__].cpf" required>
+
+        <label>Departamento:</label>
+        <input type="text" name="professores[__INDEX__].departamento" required>
+
+        <label>Senha:</label>
+        <input type="password" name="professores[__INDEX__].senha" required>
+      </fieldset>
+    </div>
+  </template>
+
+  <script>
+    // O valor inicial vem do back-end
+    let professorIndex = /*[[${instituicao.professores.size()}]]*/ 1;
+    function adicionarProfessor() {
+      const tpl = document.getElementById('templateProfessor').innerHTML;
+      const num = professorIndex + 1;
+      const html = tpl
+        .replaceAll('__INDEX__', professorIndex)
+        .replaceAll('__NUM__', num);
+      document.getElementById('professoresContainer').insertAdjacentHTML('beforeend', html);
+      professorIndex++;
+    }
+  </script>
+
+</body>
+</html>
